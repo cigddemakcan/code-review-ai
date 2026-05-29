@@ -1,22 +1,22 @@
-# ? AI Code Review Platform
+# 🤖 AI Code Review Platform
 
 A production-ready Spring Boot backend that lets developers submit code snippets or GitHub Pull Requests and receive AI-powered code reviews.
 
-## ? Features
+## ✨ Features
 
-- ? JWT-based authentication (register/login)
-- ? Code snippet management (create, list, delete)
-- ? AI-powered code review via OpenRouter API
-- ? GitHub PR review integration
-- ? Comment system on reviews
-- ?? Tag system for snippets
-- ? Pagination support
-- ?? User ownership validation
-- ? Rate limiting (5 requests/min per IP)
-- ? Structured JSON review response
-- ? Request logging
+- 🔐 JWT-based authentication (register/login)
+- 📝 Code snippet management (create, list, delete)
+- 🤖 AI-powered code review via OpenRouter API
+- 🐙 GitHub PR review integration
+- 💬 Comment system on reviews
+- 🏷️ Tag system for snippets
+- 📄 Pagination support
+- 🛡️ User ownership validation
+- ⚡ Rate limiting (5 requests/min per IP)
+- 📊 Structured JSON review response
+- 🔍 Request logging
 
-## ?? Tech Stack
+## 🛠️ Tech Stack
 
 | Technology | Purpose |
 |-----------|---------|
@@ -30,7 +30,7 @@ A production-ready Spring Boot backend that lets developers submit code snippets
 | Bucket4j | Rate limiting |
 | Maven | Build tool |
 
-## ? Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -63,47 +63,47 @@ docker compose up
 
 The application will start at `http://localhost:8080`
 
-## ? API Endpoints
+## 📡 API Endpoints
 
 ### Auth
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| POST | `/api/auth/register` | ? | Register new user |
-| POST | `/api/auth/login` | ? | Login and get JWT token |
+| POST | `/api/auth/register` | ❌ | Register new user |
+| POST | `/api/auth/login` | ❌ | Login and get JWT token |
 
 ### Snippets
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| POST | `/api/snippets` | ? | Create snippet |
-| GET | `/api/snippets?page=0&size=10` | ? | List my snippets (paginated) |
-| GET | `/api/snippets/{id}` | ? | Get snippet by id |
-| DELETE | `/api/snippets/{id}` | ? | Delete snippet |
+| POST | `/api/snippets` | ✅ | Create snippet |
+| GET | `/api/snippets?page=0&size=10` | ✅ | List my snippets (paginated) |
+| GET | `/api/snippets/{id}` | ✅ | Get snippet by id |
+| DELETE | `/api/snippets/{id}` | ✅ | Delete snippet |
 
 ### Reviews
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| POST | `/api/reviews/snippet/{id}` | ? | Generate AI review |
-| GET | `/api/reviews/snippet/{id}` | ? | Get review |
-| GET | `/api/reviews/snippet/{id}/parsed` | ? | Get structured JSON review |
+| POST | `/api/reviews/snippet/{id}` | ✅ | Generate AI review |
+| GET | `/api/reviews/snippet/{id}` | ✅ | Get review |
+| GET | `/api/reviews/snippet/{id}/parsed` | ✅ | Get structured JSON review |
 
 ### GitHub PR
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| POST | `/api/github/review` | ? | Review a GitHub PR |
+| POST | `/api/github/review` | ✅ | Review a GitHub PR |
 
 ### Comments
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| POST | `/api/comments/snippet/{id}` | ? | Add comment to review |
-| GET | `/api/comments/snippet/{id}` | ? | Get comments |
+| POST | `/api/comments/snippet/{id}` | ✅ | Add comment to review |
+| GET | `/api/comments/snippet/{id}` | ✅ | Get comments |
 
 ### Tags
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| POST | `/api/tags/snippet/{id}` | ? | Add tag to snippet |
-| GET | `/api/tags/snippet/{id}` | ? | Get tags |
+| POST | `/api/tags/snippet/{id}` | ✅ | Add tag to snippet |
+| GET | `/api/tags/snippet/{id}` | ✅ | Get tags |
 
-## ? Example Request/Response
+## 📋 Example Request/Response
 
 ### Register
 ```json
@@ -137,7 +137,7 @@ Response:
   "summary": "The code implements bubble sort correctly...",
   "bugs": [],
   "securityIssues": [],
-  "performanceIssues": ["O(n� time complexity"],
+  "performanceIssues": ["O(n² time complexity"],
   "suggestions": ["Consider using Arrays.sort() for better performance"],
   "improvedCode": "..."
 }
@@ -163,33 +163,33 @@ Response:
 }
 ```
 
-## ?? Project Structure
+## 🏗️ Project Structure
 src/main/java/com/example/codereviewai/
-??? controller/          # REST controllers
-??? service/             # Business logic
-??? repository/          # Data access layer
-??? entity/              # JPA entities
-??? dto/
-?   ??? request/         # Request DTOs with validation
-?   ??? response/        # Response DTOs
-??? exception/           # Custom exceptions & global handler
-??? security/            # JWT filter & security config
-??? config/              # Rate limiting config
+├── controller/          # REST controllers
+├── service/             # Business logic
+├── repository/          # Data access layer
+├── entity/              # JPA entities
+├── dto/
+│   ├── request/         # Request DTOs with validation
+│   └── response/        # Response DTOs
+├── exception/           # Custom exceptions & global handler
+├── security/            # JWT filter & security config
+└── config/              # Rate limiting config
 
-## ? Running Tests
+## 🧪 Running Tests
 
 ```bash
 ./mvnw test
 ```
 
-## ? Environment Variables
+## 🔧 Environment Variables
 
 | Variable | Description | Required |
 |----------|-------------|----------|
-| `OPENROUTER_API_KEY` | OpenRouter API key for AI reviews | ? |
-| `GITHUB_TOKEN` | GitHub personal access token | ? |
+| `OPENROUTER_API_KEY` | OpenRouter API key for AI reviews | ✅ |
+| `GITHUB_TOKEN` | GitHub personal access token | ✅ |
 
-## ? Notes
+## 📝 Notes
 
 - API keys are never stored in code or committed to Git
 - All endpoints except `/api/auth/**` require JWT token
